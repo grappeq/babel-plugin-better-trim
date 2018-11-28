@@ -1,5 +1,5 @@
 # babel-plugin-better-trim
-
+# Don't use! Does not work yet :(
 Tired of regular boring String.prototype.trim() function? Would you like your trim to trim anything, not just whitespaces?
 You've come to the right place! 
 
