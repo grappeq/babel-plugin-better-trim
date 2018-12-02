@@ -1,10 +1,9 @@
 # babel-plugin-better-trim
-# Don't use! Does not work yet :(
-Tired of regular boring String.prototype.trim() function? Would you like your trim to trim anything, not just whitespaces?
+Tired of regular boring [`String.prototype.trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) function? Would you like your trim to trim anything, not just whitespaces?
 You've come to the right place! 
 
 ### How does it work?
-During compilation lodash.trim function is put at the top of the output as `__better_trim__`. Usages of String.prototype.trim() that have at least 1 argument  are replaced with `__better_trim__`.
+During compilation `__better_trim__` function is put at the top of the output. Usages of `String.prototype.trim()` that have at least 1 argument  are replaced with `__better_trim__`.
 
 ### Is it useful?
 Probably not, I would recommend just using [lodash.trim](https://www.npmjs.com/package/lodash.trim) instead.
@@ -21,15 +20,10 @@ const s = "0002112300".trim("0");
 **Out**
 
 ```js
-function __better_trim__(string, chars, guard) {
-  string = toString(string);if (string && (guard || chars === undefined)) {
-    return string.replace(reTrim, '');
-  }if (!string || !(chars = baseToString(chars))) {
-    return string;
-  }var strSymbols = stringToArray(string),
-      chrSymbols = stringToArray(chars),
-      start = charsStartIndex(strSymbols, chrSymbols),
-      end = charsEndIndex(strSymbols, chrSymbols) + 1;return castSlice(strSymbols, start, end).join('');
+function __better_trim__(str, chars) {
+  if (typeof chars !== "string") {
+    return str.trim();
+  }var regex = new RegExp("^(" + chars + ")+|(" + chars + ")+$", "g");return str.replace(regex, '');
 }const s = __better_trim__("0002112300", "0");
 ```
 

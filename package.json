@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-better-trim",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Babel plugin that provides a superior trim for all your strings.",
   "repository": {
     "type": "git",
@@ -28,9 +28,6 @@
     "plugin",
     "babel-plugin"
   ],
-  "dependencies": {
-    "lodash.trim": "^4.5.1"
-  },
   "bugs": {
     "url": "https://github.com/grappeq/babel-plugin-better-trim/issues"
   },

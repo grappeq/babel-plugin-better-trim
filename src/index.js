@@ -1,9 +1,16 @@
 import { parseExpression } from "babylon";
-import _trim from "lodash.trim";
 
 const BETTER_TRIM_IDENTIFIER = "__better_trim__";
 
-const betterTrimFunctionNode = parseExpression(_trim.toString());
+function __better_trim__(str, chars) {
+    if (typeof(chars) !== "string") {
+        return str.trim();
+    }
+    var regex = new RegExp("^(" + chars +")+|(" + chars +")+$", "g");
+    return str.replace(regex, '');
+}
+
+const betterTrimFunctionNode = parseExpression(__better_trim__.toString());
 
 export default function ({ types: t }) {
     return {
