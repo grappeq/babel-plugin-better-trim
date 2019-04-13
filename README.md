@@ -1,4 +1,6 @@
 # babel-plugin-better-trim
+***This was just made for fun, do not use this in production.***
+
 Tired of regular boring [`String.prototype.trim()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim) function? Would you like your trim to trim anything, not just whitespaces?
 You've come to the right place!
 
@@ -16,7 +18,7 @@ without losing the boring classic feature:
 During compilation `__better_trim__` function is put at the top of the output. Usages of `String.prototype.trim()` that have at least 1 argument  are replaced with `__better_trim__`.
 
 ### Is it useful?
-Probably not, I would recommend just using [lodash.trim](https://www.npmjs.com/package/lodash.trim) instead.
+No, it's better to just import [lodash.trim](https://www.npmjs.com/package/lodash.trim) instead or, if you really like `"010".trim("0")` syntax, override `String.prototype.trim`.
 Nevertheless, I wanted to play a little bit with writing babel plugins and this seemed like a good place to start.
 
 ## Example
